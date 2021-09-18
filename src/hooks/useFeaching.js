@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export function useFeaching(callback) {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const fatching = async () => {
     try {

@@ -1,14 +1,12 @@
-export default async function getAll() {
-  // try {
-  const response = await fetch('http://localhost:5000/authors', {
-    method: 'GET',
-    redirect: 'follow',
-  })
-    .then(response => response.text())
-    .then(result => JSON.parse(result));
+const requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+};
+
+export async function getAll(limit = 10, page = 1) {
+  const response = await fetch(
+    `http://localhost:5000/authors?_page=${page}&_limit=${limit}`,
+    requestOptions,
+  );
   return response;
-  // } catch (error) {
-  //   alert("Error. Please try again later.", error);
-  //   return [];
-  // }
 }

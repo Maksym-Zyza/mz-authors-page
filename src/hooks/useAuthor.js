@@ -2,8 +2,10 @@ import { useMemo } from 'react';
 
 export const useSortedAuthors = (authors, sort) => {
   const sortedAuthors = useMemo(() => {
-    if (sort) {
+    if (sort === 'name') {
       return [...authors].sort((a, b) => a[sort].localeCompare(b[sort]));
+    } else if (sort === 'pageviews' || sort === 'count_pub') {
+      return [...authors].sort((a, b) => b[sort] - a[sort]);
     }
     return authors;
   }, [authors, sort]);
@@ -15,9 +17,13 @@ export const useAuthors = (authors, sort, query) => {
   const sortedAuthors = useSortedAuthors(authors, sort);
 
   const sortedAndSearchAuthors = useMemo(() => {
-    return sortedAuthors.filter(author =>
-      author.name.toLowerCase().includes(query.toLowerCase()),
-    );
+    let filteredAuthors = [];
+    if (sortedAuthors.length > 0) {
+      filteredAuthors = sortedAuthors.filter(author =>
+        author.name.toLowerCase().includes(query.toLowerCase()),
+      );
+    }
+    return filteredAuthors;
   }, [query, sortedAuthors]);
 
   return sortedAndSearchAuthors;

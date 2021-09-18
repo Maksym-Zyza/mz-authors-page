@@ -10,13 +10,14 @@ function AuthorsFilter({ filter, setFilter }) {
       <MyInput
         value={filter.query}
         onChange={e => setFilter({ ...filter, query: e.target.value })}
-        placeholder="Search..."
+        placeholder="Поиск автора по имени"
       />
       <MySelect
-        defaultValue="Sort"
+        defaultValue="Сортировка"
         options={[
-          { value: 'name', name: 'Name' },
-          { value: 'pageviews', name: 'Pageviews' },
+          { value: 'name', name: 'По имени' },
+          { value: 'count_pub', name: 'По публикациях' },
+          { value: 'pageviews', name: 'По просмотрах' },
         ]}
         value={filter.sort}
         onChange={selectedSort => {
