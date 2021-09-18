@@ -1,0 +1,23 @@
+.author {
+  display: flex;
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid #ef6b37;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+.author_title {
+  margin: 5px 0;
+  text-align: initial;
+}
+.author_content {
+  font-size: medium;
+  text-align: initial;
+}
+.author_btn {
+  font-size: medium;
+}
+.author_pageviews {
+  margin-left: auto;
+}

@@ -1,0 +1,17 @@
+.MyBtn {
+  padding: 10px;
+  margin: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  background: #ff7961;
+  border: 1px solid #ff7961;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.MyBtn:hover,
+.MyBtn:focus {
+  transform: scale(1.01);
+}

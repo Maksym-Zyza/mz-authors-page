@@ -1,0 +1,12 @@
+.MySelect {
+  padding: 5px 15px;
+  margin: 5px;
+  width: 10%;
+  min-width: 130px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #ff7961;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

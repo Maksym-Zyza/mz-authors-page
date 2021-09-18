@@ -1,0 +1,14 @@
+.conteiner {
+  width: 80%;
+  margin: 10px auto;
+}
+.title {
+  text-align: center;
+  color: #ff7961;
+}
+
+.nothing {
+  margin-top: 30px;
+  text-align: center;
+  color: #ff7961;
+}
