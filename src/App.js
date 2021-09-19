@@ -8,6 +8,7 @@ import { getAuthors, getAllAuthors } from './API/AuthorsApi';
 import { useAuthors } from './hooks/useAuthor';
 import { useFeaching } from './hooks/useFeaching';
 import { getPagesCount } from './utils/pages';
+import { getTopAuthors } from './utils/getTopAuthors';
 import { useSortedPaginetion } from './hooks/useSortedPaginetion';
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
   );
 
   const totalPages = getPagesCount(sortedAndSearchAuthors, limit);
+  const topAuthors = getTopAuthors(totalAuthors);
 
   const sortedAndSearchPaginetion = useSortedPaginetion(
     sortedAndSearchAuthors,
@@ -67,6 +69,7 @@ function App() {
             authors={sortedAndSearchPaginetion}
             page={page}
             limit={limit}
+            topAuthors={topAuthors}
           />
           <Paginetion
             page={page}

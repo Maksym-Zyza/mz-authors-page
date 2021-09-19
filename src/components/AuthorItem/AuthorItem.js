@@ -1,8 +1,7 @@
 import React from 'react';
-// import MyButton from "../UI/MyButton/MyButton";
 import css from './AuthorItem.module.css';
 
-const AuthorItem = ({ author, number }) => {
+const AuthorItem = ({ author, number, topAuthors }) => {
   return (
     <div>
       <div className={css.author}>
@@ -12,6 +11,9 @@ const AuthorItem = ({ author, number }) => {
           </strong>
           <div>{author.count_pub} публ.</div>
         </div>
+        <span>{author.pageviews === topAuthors[0] && 111}</span>
+        <span>{author.pageviews === topAuthors[1] && 222}</span>
+        <span>{author.pageviews === topAuthors[2] && 333}</span>
         <strong className={css.author_pageviews}>{author.pageviews}</strong>
       </div>
     </div>
