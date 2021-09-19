@@ -13,7 +13,7 @@ export const useSortedAuthors = (authors, sort) => {
   return sortedAuthors;
 };
 
-export const useAuthors = (authors, sort, query) => {
+export const useAuthors = (authors, sort, query, setPage) => {
   const sortedAuthors = useSortedAuthors(authors, sort);
 
   const sortedAndSearchAuthors = useMemo(() => {
@@ -23,8 +23,13 @@ export const useAuthors = (authors, sort, query) => {
         author.name.toLowerCase().includes(query.toLowerCase()),
       );
     }
+
+    if (sort.length > 0 || query.length > 0) {
+      setPage(1);
+    }
+
     return filteredAuthors;
-  }, [query, sortedAuthors]);
+  }, [query, sortedAuthors, setPage, sort]);
 
   return sortedAndSearchAuthors;
 };

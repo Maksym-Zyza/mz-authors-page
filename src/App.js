@@ -4,44 +4,56 @@ import AuthorsFilter from './components/AuthorsFilter/AuthorsFilter';
 import Loader from './components/UI/Loader/Loader';
 import Paginetion from './components/UI/Paginetion/Paginetion';
 import Error from './components/UI/Error/Error';
-import { getAll } from './API/AuthorsApi';
+import { getAuthors, getAllAuthors } from './API/AuthorsApi';
 import { useAuthors } from './hooks/useAuthor';
 import { useFeaching } from './hooks/useFeaching';
 import { getPagesCount } from './utils/pages';
+import { useSortedPaginetion } from './hooks/useSortedPaginetion';
 import './App.css';
 
 function App() {
   const [authors, setAuthors] = useState([]);
+  const [totalAuthors, setTotalAuthors] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-
-  const changePage = page => {
-    setPage(page);
-    fetchAuthors(limit, page);
-  };
 
   // FETCH Authors
   const [fetchAuthors, isAuthorsLoading, authorError] = useFeaching(
     async (limit, page) => {
-      const response = await getAll(limit, page).then(response =>
-        response.json(),
-      );
+      const response = await getAuthors(limit, page);
       setAuthors(response);
 
-      const totalAuthors = await getAll();
-      const totalCount = totalAuthors.headers.get('X-Total-Count');
-      setTotalPages(getPagesCount(totalCount, limit));
+      const allAuthors = await getAllAuthors();
+      setTotalAuthors(allAuthors);
     },
   );
+
+  // SORTED and SEARCH
+  const [filter, setFilter] = useState({ sort: '', query: '' });
+  const sortedAndSearchAuthors = useAuthors(
+    totalAuthors,
+    filter.sort,
+    filter.query,
+    setPage,
+  );
+
+  const totalPages = getPagesCount(sortedAndSearchAuthors, limit);
+
+  const sortedAndSearchPaginetion = useSortedPaginetion(
+    sortedAndSearchAuthors,
+    totalPages,
+    limit,
+    page,
+  );
+
+  // CAHGE PAGE
+  const changePage = page => {
+    setPage(page);
+  };
 
   useEffect(() => {
     fetchAuthors(limit, page);
   }, []);
-
-  // SORTED and SEARCH
-  const [filter, setFilter] = useState({ sort: '', query: '' });
-  const sortedAndSearchAuthors = useAuthors(authors, filter.sort, filter.query);
 
   return (
     <div className="App">
@@ -49,11 +61,23 @@ function App() {
 
       {isAuthorsLoading ? (
         <Loader />
+      ) : sortedAndSearchPaginetion.length ? (
+        <>
+          <AuthorsList
+            authors={sortedAndSearchPaginetion}
+            page={page}
+            limit={limit}
+          />
+          <Paginetion
+            page={page}
+            limit={limit}
+            totalPages={totalPages}
+            changePage={changePage}
+          />
+        </>
       ) : (
-        <AuthorsList authors={sortedAndSearchAuthors} page={page} />
+        <h1 className="nothing">Authors not found!</h1>
       )}
-
-      <Paginetion totalPages={totalPages} page={page} changePage={changePage} />
 
       <Error error={authorError} />
     </div>

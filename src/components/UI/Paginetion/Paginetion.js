@@ -1,20 +1,29 @@
 import React from 'react';
-import { usePaginetion } from '../../../hooks/usePaginetion';
 
-export default function Paginetion({ totalPages, page, changePage }) {
-  const pagesArray = usePaginetion(totalPages);
+export default function Paginetion({ page, limit, totalPages, changePage }) {
   return (
     <div>
-      {pagesArray.map(el => (
+      {page > 1 && (
         <button
-          key={el}
           type="button"
-          className={page === el ? 'btn_current' : 'btn'}
-          onClick={() => changePage(el)}
+          className="btn"
+          onClick={() => changePage(page - 1)}
         >
-          {el}
+          &lt;
         </button>
-      ))}
+      )}
+      <span className="btn">
+        {page + 1 * limit - limit} - {page * limit}
+      </span>
+      {page < totalPages && (
+        <button
+          type="button"
+          className="btn"
+          onClick={() => changePage(page + 1)}
+        >
+          &gt;
+        </button>
+      )}
     </div>
   );
 }
