@@ -93,7 +93,7 @@ export const Silver = () => {
         <defs></defs>
         <title>2nd</title>
         <polygon
-          class="cls-1"
+          className={css.cls_silver_1}
           points="120.62 282.73 219.57 282.73 87.83 0 21.67 70.38 120.62 282.73"
         />
         <path

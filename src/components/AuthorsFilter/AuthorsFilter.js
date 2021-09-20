@@ -6,7 +6,6 @@ import css from './AuthorsFilter.module.scss';
 function AuthorsFilter({ filter, setFilter }) {
   return (
     <div className={css.filter_section}>
-      <hr style={{ margin: '15px 0' }} />
       <MyInput
         value={filter.query}
         onChange={e => setFilter({ ...filter, query: e.target.value })}
@@ -24,6 +23,7 @@ function AuthorsFilter({ filter, setFilter }) {
           setFilter({ ...filter, sort: selectedSort });
         }}
       />
+      <hr />
     </div>
   );
 }

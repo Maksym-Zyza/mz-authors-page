@@ -4,14 +4,27 @@ import css from './AuthorItem.module.scss';
 
 const AuthorItem = ({ author, number, topAuthors }) => {
   return (
-    <div>
-      <div className={css.author}>
-        <div className={css.author_content}>
-          <strong>
-            {number}. {author.name}
-          </strong>
-          <div>{author.count_pub} публ.</div>
-        </div>
+    <div className={number % 2 === 0 ? css.author_color : css.author}>
+      <strong className={css.number}>{number}.</strong>
+      <span
+        className={css.img}
+        style={{
+          background:
+            '#' +
+            (Math.random().toString(16) + '000000')
+              .substring(2, 8)
+              .toUpperCase(),
+        }}
+      >
+        {author.name.slice(0, 1)}
+      </span>
+
+      <div className={css.author_content}>
+        <div className={css.name}>{author.name}</div>
+        <div>{author.count_pub} публ.</div>
+      </div>
+
+      <div>
         <span className={css.medal}>
           {author.pageviews === topAuthors[0] && <Goold />}
         </span>
@@ -21,8 +34,9 @@ const AuthorItem = ({ author, number, topAuthors }) => {
         <span className={css.medal}>
           {author.pageviews === topAuthors[2] && <Bronze />}
         </span>
-        <strong className={css.author_pageviews}>{author.pageviews}</strong>
       </div>
+
+      <strong className={css.author_pageviews}>{author.pageviews}</strong>
     </div>
   );
 };

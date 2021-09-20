@@ -9,14 +9,13 @@
   padding: 10px;
   color: #fff;
   font-size: 16px;
-  font-weight: 500;
-  background: #ff7961;
-  border: 1px solid #ff7961;
+  font-weight: 700;
+  background: #58b6b9;
+  border: 1px solid #dcedc8;
   outline: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.25s ease;
-
   &:hover,
   &.btn:focus {
     transform: scale(1.05);
@@ -40,9 +39,8 @@
   margin-bottom: 20px;
   padding: 10px;
   font-size: 16px;
-  font-weight: 500;
-  // color: #fff;
-  // background: #ff7961;
-  border: 1px solid #ff7961;
+  font-weight: 600;
+  color: #47b2b6;
+  border: 1px solid #58b6b9;
   border-radius: 5px;
 }

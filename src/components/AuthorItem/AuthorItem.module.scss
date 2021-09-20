@@ -1,12 +1,46 @@
 .author {
+  position: relative;
   display: flex;
-  margin: 20px 0;
-  padding: 15px;
-  border: 2px solid #ef6b37;
+  padding: 7px;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 2px;
+  background: white;
 }
+
+.number {
+  display: inline;
+  width: 20px;
+  font-weight: 500;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  width: 45px;
+  height: 45px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #edf1cf;
+  background: gray;
+  border-radius: 50%;
+  border: 1px solid #edf1cf;
+}
+
+.name {
+  width: 100px;
+  @media screen and (min-width: 500px) {
+    width: 100%;
+  }
+}
+
+.author_color {
+  @extend .author;
+  background: #e8f5e9;
+}
+
 .author_title {
   margin: 5px 0;
   text-align: initial;
@@ -23,11 +57,11 @@
 }
 .medal {
   position: absolute;
-  left: 60%;
+  left: 70%;
   width: 22px;
   height: 22px;
   transform: translate(-50%, -50%);
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 650px) {
     left: 55%;
   }
 }
