@@ -1,6 +1,6 @@
 import React from 'react';
 import uniqid from 'uniqid';
-import css from './MySelect.module.css';
+import css from './MySelect.module.scss';
 
 function MySelect({ options, defaultValue, value, onChange }) {
   return (

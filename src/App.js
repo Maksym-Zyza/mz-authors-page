@@ -10,7 +10,7 @@ import { useFeaching } from './hooks/useFeaching';
 import { getPagesCount } from './utils/pages';
 import { getTopAuthors } from './utils/getTopAuthors';
 import { useSortedPaginetion } from './hooks/useSortedPaginetion';
-import './App.css';
+import './styles.scss';
 
 function App() {
   const [authors, setAuthors] = useState([]);
@@ -41,6 +41,7 @@ function App() {
   const totalPages = getPagesCount(sortedAndSearchAuthors, limit);
   const topAuthors = getTopAuthors(totalAuthors);
 
+  // PAGINETION
   const sortedAndSearchPaginetion = useSortedPaginetion(
     sortedAndSearchAuthors,
     totalPages,

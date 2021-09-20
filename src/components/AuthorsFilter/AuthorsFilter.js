@@ -1,7 +1,7 @@
 import React from 'react';
 import MySelect from '../UI/MySelect/MySelect';
 import MyInput from '../UI/MyInput/MyInput';
-import css from './AuthorsFilter.module.css';
+import css from './AuthorsFilter.module.scss';
 
 function AuthorsFilter({ filter, setFilter }) {
   return (

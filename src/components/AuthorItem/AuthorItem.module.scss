@@ -21,3 +21,13 @@
 .author_pageviews {
   margin-left: auto;
 }
+.medal {
+  position: absolute;
+  left: 60%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  @media screen and (min-width: 500px) {
+    left: 55%;
+  }
+}

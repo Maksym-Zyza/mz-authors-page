@@ -1,7 +1,7 @@
 import React from 'react';
 import uniqid from 'uniqid';
 import AuthorItem from '../AuthorItem/AuthorItem';
-import css from './AuthorsList.module.css';
+import css from './AuthorsList.module.scss';
 
 function AuthorsList({ authors, page, limit, topAuthors }) {
   return (

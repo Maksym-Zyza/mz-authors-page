@@ -1,0 +1,48 @@
+.paginetion {
+  position: relative;
+  margin: auto;
+  width: 240px;
+}
+
+.btn {
+  position: absolute;
+  padding: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  background: #ff7961;
+  border: 1px solid #ff7961;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover,
+  &.btn:focus {
+    transform: scale(1.05);
+  }
+}
+
+.left {
+  @extend .btn;
+  left: 30px;
+}
+
+.right {
+  @extend .btn;
+  top: 0;
+  right: 30px;
+}
+
+.pages {
+  width: 80px;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  // color: #fff;
+  // background: #ff7961;
+  border: 1px solid #ff7961;
+  border-radius: 5px;
+}
