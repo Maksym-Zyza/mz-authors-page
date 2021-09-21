@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/mz-authors_page/static/css/main.1a788fed.chunk.css",
-    "main.js": "/mz-authors_page/static/js/main.e1cb86a2.chunk.js",
-    "main.js.map": "/mz-authors_page/static/js/main.e1cb86a2.chunk.js.map",
+    "main.css": "/mz-authors_page/static/css/main.497bb0a5.chunk.css",
+    "main.js": "/mz-authors_page/static/js/main.37c0ec49.chunk.js",
+    "main.js.map": "/mz-authors_page/static/js/main.37c0ec49.chunk.js.map",
     "runtime-main.js": "/mz-authors_page/static/js/runtime-main.f4daf91e.js",
     "runtime-main.js.map": "/mz-authors_page/static/js/runtime-main.f4daf91e.js.map",
     "static/js/2.b3696233.chunk.js": "/mz-authors_page/static/js/2.b3696233.chunk.js",
     "static/js/2.b3696233.chunk.js.map": "/mz-authors_page/static/js/2.b3696233.chunk.js.map",
     "index.html": "/mz-authors_page/index.html",
-    "static/css/main.1a788fed.chunk.css.map": "/mz-authors_page/static/css/main.1a788fed.chunk.css.map",
+    "static/css/main.497bb0a5.chunk.css.map": "/mz-authors_page/static/css/main.497bb0a5.chunk.css.map",
     "static/js/2.b3696233.chunk.js.LICENSE.txt": "/mz-authors_page/static/js/2.b3696233.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f4daf91e.js",
     "static/js/2.b3696233.chunk.js",
-    "static/css/main.1a788fed.chunk.css",
-    "static/js/main.e1cb86a2.chunk.js"
+    "static/css/main.497bb0a5.chunk.css",
+    "static/js/main.37c0ec49.chunk.js"
   ]
 }
