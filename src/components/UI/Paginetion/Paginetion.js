@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import css from './Paginetion.module.scss';
 
 export default function Paginetion({
@@ -37,3 +38,17 @@ export default function Paginetion({
     </div>
   );
 }
+
+Paginetion.propTypes = {
+  authors: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      count_pub: PropTypes.number,
+      pageviews: PropTypes.number,
+    }),
+  ).isRequired,
+  page: PropTypes.number.isRequired,
+  limit: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  changePage: PropTypes.func.isRequired,
+};

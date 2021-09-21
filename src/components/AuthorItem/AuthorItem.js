@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Goold, Silver, Bronze } from '../../img/medal';
 import css from './AuthorItem.module.scss';
 
@@ -39,6 +40,16 @@ const AuthorItem = ({ author, number, topAuthors }) => {
       <strong className={css.author_pageviews}>{author.pageviews}</strong>
     </div>
   );
+};
+
+AuthorItem.propTypes = {
+  authors: PropTypes.shape({
+    name: PropTypes.string,
+    count_pub: PropTypes.number,
+    pageviews: PropTypes.number,
+  }),
+  number: PropTypes.number.isRequired,
+  topAuthors: PropTypes.array.isRequired,
 };
 
 export default AuthorItem;

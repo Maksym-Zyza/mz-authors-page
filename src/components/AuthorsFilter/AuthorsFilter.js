@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MySelect from '../UI/MySelect/MySelect';
 import MyInput from '../UI/MyInput/MyInput';
 import css from './AuthorsFilter.module.scss';
@@ -27,5 +28,14 @@ function AuthorsFilter({ filter, setFilter }) {
     </div>
   );
 }
+
+AuthorsFilter.propTypes = {
+  filter: PropTypes.shape({
+    sort: PropTypes.string,
+    query: PropTypes.string,
+  }).isRequired,
+  setFilter: PropTypes.func.isRequired,
+  selectedSort: PropTypes.func,
+};
 
 export default AuthorsFilter;

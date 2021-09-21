@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import AuthorItem from '../AuthorItem/AuthorItem';
 import css from './AuthorsList.module.scss';
@@ -17,5 +18,18 @@ function AuthorsList({ authors, page, limit, topAuthors }) {
     </div>
   );
 }
+
+AuthorsList.propTypes = {
+  authors: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      count_pub: PropTypes.number,
+      pageviews: PropTypes.number,
+    }),
+  ).isRequired,
+  page: PropTypes.number.isRequired,
+  limit: PropTypes.number.isRequired,
+  topAuthors: PropTypes.array.isRequired,
+};
 
 export default AuthorsList;
