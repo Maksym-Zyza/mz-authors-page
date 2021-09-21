@@ -1,7 +1,7 @@
 .author {
   position: relative;
   display: flex;
-  padding: 7px;
+  padding: 9px;
   justify-content: space-between;
   align-items: center;
   border-radius: 2px;
@@ -57,6 +57,7 @@
 }
 .medal {
   position: absolute;
+  top: 22px;
   left: 70%;
   width: 22px;
   height: 22px;

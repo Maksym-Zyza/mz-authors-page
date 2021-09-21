@@ -29,9 +29,10 @@ body {
 .App {
   display: block;
   width: 95%;
+  height: 100%;
   text-align: center;
   background: linear-gradient(#58b6b9, #edf1cf);
-  border-radius: 7px;
+  border-radius: 5px;
   @media screen and (min-width: 780px) {
     width: 80%;
   }

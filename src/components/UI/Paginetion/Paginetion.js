@@ -1,7 +1,13 @@
 import React from 'react';
 import css from './Paginetion.module.scss';
 
-export default function Paginetion({ page, limit, totalPages, changePage }) {
+export default function Paginetion({
+  page,
+  limit,
+  totalPages,
+  changePage,
+  authors,
+}) {
   return (
     <div className={css.paginetion}>
       {page > 1 && (
@@ -14,7 +20,10 @@ export default function Paginetion({ page, limit, totalPages, changePage }) {
         </button>
       )}
       <div className={css.pages}>
-        {page + 1 * limit - limit} - {page * limit}
+        {page * limit + 1 - limit} -{' '}
+        {authors.length < 10
+          ? page * limit + authors.length - limit
+          : page * limit}
       </div>
       {page < totalPages && (
         <button

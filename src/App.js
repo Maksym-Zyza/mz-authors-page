@@ -4,7 +4,7 @@ import AuthorsFilter from './components/AuthorsFilter/AuthorsFilter';
 import Loader from './components/UI/Loader/Loader';
 import Paginetion from './components/UI/Paginetion/Paginetion';
 import Error from './components/UI/Error/Error';
-import { getAuthors, getAllAuthors } from './API/AuthorsApi';
+import { getAuthors } from './API/AuthorsApi';
 import { useAuthors } from './hooks/useAuthor';
 import { useFeaching } from './hooks/useFeaching';
 import { getPagesCount } from './utils/pages';
@@ -14,32 +14,28 @@ import './styles.scss';
 
 function App() {
   const [authors, setAuthors] = useState([]);
-  const [totalAuthors, setTotalAuthors] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
 
   // FETCH Authors
   const [fetchAuthors, isAuthorsLoading, authorError] = useFeaching(
-    async (limit, page) => {
-      const response = await getAuthors(limit, page);
-      setAuthors(response);
-
-      const allAuthors = await getAllAuthors();
-      setTotalAuthors(allAuthors);
+    async () => {
+      const allAuthors = await getAuthors();
+      setAuthors(allAuthors);
     },
   );
 
   // SORTED and SEARCH
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const sortedAndSearchAuthors = useAuthors(
-    totalAuthors,
+    authors,
     filter.sort,
     filter.query,
     setPage,
   );
 
   const totalPages = getPagesCount(sortedAndSearchAuthors, limit);
-  const topAuthors = getTopAuthors(totalAuthors);
+  const topAuthors = getTopAuthors(authors);
 
   // PAGINETION
   const sortedAndSearchPaginetion = useSortedPaginetion(
@@ -55,7 +51,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetchAuthors(limit, page);
+    fetchAuthors();
   }, []);
 
   return (
@@ -67,16 +63,17 @@ function App() {
       ) : sortedAndSearchPaginetion.length ? (
         <>
           <AuthorsList
-            authors={sortedAndSearchPaginetion}
             page={page}
             limit={limit}
             topAuthors={topAuthors}
+            authors={sortedAndSearchPaginetion}
           />
           <Paginetion
             page={page}
             limit={limit}
             totalPages={totalPages}
             changePage={changePage}
+            authors={sortedAndSearchPaginetion}
           />
         </>
       ) : (
