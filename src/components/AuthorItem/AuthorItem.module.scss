@@ -6,6 +6,14 @@
   align-items: center;
   border-radius: 2px;
   background: white;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    transform: scale(1.005);
+    transition: all 0.2s linear;
+    text-shadow: 0 3px 4px rgba(45, 44, 46, 0.4);
+  }
 }
 
 .number {
@@ -29,7 +37,7 @@
   border: 1px solid #edf1cf;
 }
 
-.name {
+.author_name {
   width: 100px;
   @media screen and (min-width: 500px) {
     width: 100%;
@@ -49,6 +57,7 @@
 .author_pageviews {
   margin-left: auto;
 }
+
 .medal {
   position: absolute;
   top: 22px;
@@ -59,4 +68,19 @@
   @media screen and (min-width: 650px) {
     left: 55%;
   }
+}
+
+.name {
+  display: block;
+  margin-bottom: 10px;
+  font-size: large;
+}
+.modal_block {
+  text-align: center;
+}
+.pageviews {
+  margin: 10px 0;
+}
+.description {
+  margin: 2px;
 }
