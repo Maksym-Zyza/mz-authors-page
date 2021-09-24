@@ -36,7 +36,7 @@ export default function Modal({ onClose, children }) {
       <div className={css.content}>
         <CloseModalBtn className={css.closeBtn} onClick={handleClose} />
         {children}
-        <div className={css.btn_wrapper}>
+        <div>
           <button className={css.cancelBtn} onClick={handleClose}>
             Cancel
           </button>
